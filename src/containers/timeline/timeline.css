@@ -1,0 +1,64 @@
+.timeline-main {
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #3b82f6;
+}
+
+/* center line */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background: #3b82f6;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* items */
+.timeline-item {
+  padding: 20px;
+  width: 50%;
+  position: relative;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+/* cards */
+.timeline-content {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #3b82f6;
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(59,130,246,0.3);
+}
+
+.timeline-date {
+  color: #60a5fa;
+  font-weight: bold;
+}
