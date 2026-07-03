@@ -452,8 +452,8 @@ const blogSection = {
   display: true
 };
 
-const talkSection = { display: false };
-const podcastSection = { display: false };
+//const talkSection = { display: false };
+//const podcastSection = { display: false };
 
 // Resume Section
 const resumeSection = {
