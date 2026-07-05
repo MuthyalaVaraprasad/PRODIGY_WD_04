@@ -1,23 +1,37 @@
-import React, {useState, createRef} from "react";
+import React, {useState, createRef, useContext} from "react";
 import "./ExperienceCard.scss";
 import ColorThief from "colorthief";
+import StyleContext from "../../contexts/StyleContext";
+import {motion} from "framer-motion";
 
-export default function ExperienceCard({cardInfo, isDark}) {
-  const [colorArrays, setColorArrays] = useState([]);
+export default function ExperienceCard({cardInfo}) {
+  const [colorArrays, setColorArrays] = useState([100, 91, 235]); // Default brand purple
   const imgRef = createRef();
+  const {isDark} = useContext(StyleContext);
 
   function getColorArrays() {
-    const colorThief = new ColorThief();
-    setColorArrays(colorThief.getColor(imgRef.current));
+    try {
+      const colorThief = new ColorThief();
+      const color = colorThief.getColor(imgRef.current);
+      if (color) {
+        setColorArrays(color);
+      }
+    } catch (err) {
+      console.warn(
+        "ColorThief failed to extract color, falling back to brand default.",
+        err
+      );
+      // Fallback is already initialized in state
+    }
   }
 
   function rgb(values) {
     return typeof values === "undefined"
-      ? null
+      ? "rgb(100, 91, 235)"
       : "rgb(" + values.join(", ") + ")";
   }
 
-  const GetDescBullets = ({descBullets, isDark}) => {
+  const GetDescBullets = ({descBullets}) => {
     return descBullets
       ? descBullets.map((item, i) => (
           <li
@@ -31,21 +45,36 @@ export default function ExperienceCard({cardInfo, isDark}) {
   };
 
   return (
-    <div className={isDark ? "experience-card-dark" : "experience-card"}>
+    <motion.div
+      className={isDark ? "experience-card-dark" : "experience-card"}
+      initial={{opacity: 0, y: 30}}
+      whileInView={{opacity: 1, y: 0}}
+      viewport={{once: true}}
+      transition={{duration: 0.6}}
+      whileHover={{y: -5}}
+    >
       <div style={{background: rgb(colorArrays)}} className="experience-banner">
         <div className="experience-blurred_div"></div>
         <div className="experience-div-company">
           <h5 className="experience-text-company">{cardInfo.company}</h5>
         </div>
 
-        <img
-          crossOrigin={"anonymous"}
-          ref={imgRef}
-          className="experience-roundedimg"
-          src={cardInfo.companylogo}
-          alt={cardInfo.company}
-          onLoad={() => getColorArrays()}
-        />
+        {cardInfo.companylogo ? (
+          <img
+            crossOrigin={"anonymous"}
+            ref={imgRef}
+            className="experience-roundedimg"
+            src={cardInfo.companylogo}
+            alt={cardInfo.company}
+            onLoad={() => getColorArrays()}
+            onError={() => {
+              console.warn(`Failed to load logo for ${cardInfo.company}`);
+              setColorArrays([100, 91, 235]); // Fallback
+            }}
+          />
+        ) : (
+          <div className="experience-roundedimg-placeholder">💼</div>
+        )}
       </div>
       <div className="experience-text-details">
         <h5
@@ -76,9 +105,9 @@ export default function ExperienceCard({cardInfo, isDark}) {
           {cardInfo.desc}
         </p>
         <ul>
-          <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} />
+          <GetDescBullets descBullets={cardInfo.descBullets} />
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }

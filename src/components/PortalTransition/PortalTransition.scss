@@ -1,0 +1,141 @@
+.portal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #060913;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+/* Cyber Grid Background */
+.portal-grid {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: linear-gradient(
+      rgba(100, 91, 235, 0.07) 2px,
+      transparent 2px
+    ),
+    linear-gradient(90deg, rgba(100, 91, 235, 0.07) 2px, transparent 2px);
+  background-size: 50px 50px;
+  transform: rotateX(70deg);
+  animation: gridScroll 4s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes gridScroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 200px;
+  }
+}
+
+/* Ring Animations and Layout */
+.portal-ring-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.portal-ring {
+  position: absolute;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+
+  &.ring-outer {
+    width: 280px;
+    height: 280px;
+    border: 8px dashed #645beb;
+    filter: drop-shadow(0 0 35px rgba(100, 91, 235, 0.8));
+  }
+
+  &.ring-inner {
+    width: 200px;
+    height: 200px;
+    border: 5px dotted #00f2fe;
+    filter: drop-shadow(0 0 25px rgba(0, 242, 254, 0.8));
+  }
+}
+
+.portal-core {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    #00f2fe 30%,
+    #645beb 60%,
+    rgba(6, 9, 19, 0) 100%
+  );
+  filter: blur(10px) drop-shadow(0 0 40px #00f2fe);
+}
+
+/* Cyber Loading Message */
+.portal-message {
+  position: absolute;
+  bottom: 80px;
+  text-align: center;
+  color: white;
+  z-index: 100;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #00f2fe;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+    margin-bottom: 15px;
+    font-family: monospace;
+  }
+}
+
+.portal-loader {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  span {
+    width: 8px;
+    height: 8px;
+    background-color: #645beb;
+    border-radius: 50%;
+    animation: loaderPulse 0.6s infinite alternate;
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+      background-color: #00f2fe;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  }
+}
+
+@keyframes loaderPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}

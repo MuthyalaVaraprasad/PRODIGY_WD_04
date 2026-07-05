@@ -1,0 +1,115 @@
+.certifications-main {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+
+  .title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #171c28;
+
+    &.dark-mode {
+      color: #ffffff;
+    }
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+
+    &.dark-mode {
+      color: #a7a9be;
+    }
+  }
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(211, 211, 211, 0.4);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  text-align: left;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &.dark-card {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    .cert-name {
+      color: #ffffff;
+    }
+
+    .cert-icon-wrapper {
+      background: rgba(100, 91, 235, 0.15);
+      color: #60a5fa;
+    }
+  }
+
+  &:hover {
+    border-color: #645beb;
+    box-shadow: 0 8px 25px rgba(100, 91, 235, 0.12);
+  }
+
+  .cert-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(100, 91, 235, 0.1);
+    color: #645beb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+
+  .cert-details {
+    flex-grow: 1;
+
+    .cert-name {
+      font-size: 15px;
+      font-weight: 550;
+      color: #171c28;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .certifications-main {
+    padding: 50px 15px;
+
+    .title {
+      font-size: 30px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+    }
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    padding: 15px;
+  }
+}

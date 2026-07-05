@@ -10,7 +10,11 @@ import {
   openSource,
   blogSection,
   achievementSection,
-  resumeSection
+  resumeSection,
+  educationInfo,
+  certificationsSection,
+  leadershipExperiences,
+  whyHireMe
 } from "../../portfolio";
 
 function Header() {
@@ -21,6 +25,11 @@ function Header() {
   const viewAchievement = achievementSection.display;
   const viewBlog = blogSection.display;
   const viewResume = resumeSection.display;
+  const viewEducation = educationInfo.display;
+  const viewCertifications = certificationsSection.display;
+  const viewLeadership = leadershipExperiences.display;
+  const viewWhyHireMe = whyHireMe.display;
+  const viewDashboards = true;
 
   return (
     <Headroom>
@@ -49,6 +58,31 @@ function Header() {
               <a href="#experience">Work Experiences</a>
             </li>
           )}
+          {viewEducation && (
+            <li>
+              <a href="#education">Education</a>
+            </li>
+          )}
+          {viewCertifications && (
+            <li>
+              <a href="#certifications">Certifications</a>
+            </li>
+          )}
+          {viewLeadership && (
+            <li>
+              <a href="#leadership">Leadership</a>
+            </li>
+          )}
+          {viewDashboards && (
+            <li>
+              <a href="#dashboards">Dashboards</a>
+            </li>
+          )}
+          {viewWhyHireMe && (
+            <li>
+              <a href="#whyHireMe">Why Hire Me</a>
+            </li>
+          )}
           {viewOpenSource && (
             <li>
               <a href="#opensource">Open Source</a>
@@ -64,14 +98,21 @@ function Header() {
               <a href="#blogs">Blogs</a>
             </li>
           )}
-        
           {viewResume && (
             <li>
               <a href="#resume">Resume</a>
             </li>
           )}
           <li>
-            <a href="#contact">Contact Me</a>
+            <a
+              href="#contact"
+              onClick={e => {
+                e.preventDefault();
+                if (window.triggerContactModal) window.triggerContactModal();
+              }}
+            >
+              Contact Me
+            </a>
           </li>
           <li>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

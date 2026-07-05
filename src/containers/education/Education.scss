@@ -1,50 +1,34 @@
-.education-heading {
-  font-size: 56px;
-  font-weight: 400;
-}
-
 .education-section {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  padding: 20px 0px;
-  margin: 0px auto;
-  margin-top: 2rem;
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.education-section > * {
-  flex: 1;
-  margin-bottom: 30px;
+.education-heading {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #171c28;
+
+  .dark-mode & {
+    color: #ffffff;
+  }
 }
 
 .education-card-container {
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
-}
-
-@media (max-width: 1380px) {
-  .education-card-container {
-    padding-top: 0px;
-  }
-  .education-heading {
-    font-size: 40px;
-  }
-  .education-text-subtitle {
-    font-size: 18px;
-    text-align: center;
-  }
+  width: 100%;
 }
 
 @media (max-width: 768px) {
-  .education-card-container {
-    padding-top: 0px;
+  .education-section {
+    padding: 50px 15px;
   }
+
   .education-heading {
     font-size: 30px;
-    text-align: center;
-  }
-  .education-text-subtitle {
-    font-size: 16px;
+    margin-bottom: 30px;
   }
 }

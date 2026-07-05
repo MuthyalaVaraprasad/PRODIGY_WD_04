@@ -1,134 +1,153 @@
-@import "../../_globalColor";
-
 .education-card {
   display: flex;
-  flex-direction: row;
-}
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(211, 211, 211, 0.4);
+  border-left: 5px solid #645beb;
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  gap: 20px;
+  text-align: left;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
-.education-card:hover + .education-card-border {
-  border-color: $educationCardBorder;
-  width: 100%;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
-}
+  &.dark-card {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(255, 255, 255, 0.08);
+    border-left-color: #645beb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 
-.education-card-border {
-  height: 30px;
-  width: 80%;
-  border-top: 2px solid $lightBorder1;
-  margin-bottom: 20px;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
-}
+    .school-name {
+      color: #ffffff;
+    }
 
-.education-head {
-  display: flex;
-  flex-direction: row;
-}
+    .school-degree {
+      color: #ffffff;
+    }
 
-.education-text-school {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  height: 27px;
-}
+    .school-desc {
+      color: #e2e8f0;
+    }
 
-.education-roundedimg {
-  object-fit: cover;
-  margin-right: 2rem;
-  width: 6rem;
-  height: 6rem;
-  box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
-  border-radius: 50%;
-}
-
-.education-card-right {
-  max-width: 70%;
-}
-
-.education-text-subHeader {
-  color: $textColor;
-  font-weight: 700;
-  font-size: 19px;
-  margin: 0px;
-  padding-top: 0.8rem;
-  line-height: normal;
-}
-
-.education-text-duration {
-  color: $titleColor;
-  font-size: 19px;
-  margin: 0px;
-  padding-top: 0.5rem;
-}
-
-.education-text-desc {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.education-text-bullets > ul {
-  margin-top: 0.5rem;
-}
-
-/* Media Query */
-
-@media (max-width: 1380px) {
-  .education-card {
-    flex-direction: column;
-    padding-bottom: 10px;
+    .bullet-item {
+      color: #e2e8f0;
+    }
   }
+
+  &:hover {
+    box-shadow: 0 8px 25px rgba(100, 91, 235, 0.12);
+  }
+
+  .education-card-left {
+    flex-shrink: 0;
+
+    .school-logo-container {
+      width: 70px;
+      height: 70px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+
+      .school-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .school-logo-placeholder {
+        font-size: 32px;
+      }
+    }
+  }
+
   .education-card-right {
-    max-width: 90%;
-  }
-  .education-card-border {
-    width: 90%;
-  }
-  .education-text-subHeader {
-    padding-top: 0.5rem;
-    font-size: 16px;
-  }
-  .education-text-school {
-    font-size: 20px;
-    height: 23px;
-  }
-  .education-text-duration {
-    font-size: 16px;
-  }
-  .education-roundedimg {
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0px;
+    flex-grow: 1;
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .school-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #171c28;
+        margin: 0;
+      }
+
+      .school-duration {
+        font-size: 13px;
+        font-weight: 600;
+        color: #645beb;
+        background: rgba(100, 91, 235, 0.1);
+        padding: 4px 12px;
+        border-radius: 20px;
+      }
+    }
+
+    .school-degree {
+      font-size: 16px;
+      font-weight: 600;
+      color: #4a5568;
+      margin: 0 0 10px 0;
+    }
+
+    .school-desc {
+      font-size: 14.5px;
+      color: #4a5568;
+      line-height: 1.6;
+      margin: 0 0 12px 0;
+    }
+
+    .school-bullets {
+      ul {
+        margin: 0;
+        padding-left: 20px;
+
+        .bullet-item {
+          font-size: 13.5px;
+          color: #4a5568;
+          line-height: 1.6;
+          margin-bottom: 6px;
+        }
+      }
+    }
   }
 }
 
 @media (max-width: 768px) {
   .education-card {
-    text-align: center;
-  }
-  .education-card-right {
-    max-width: 100%;
-  }
-  .education-card-border {
-    width: 100%;
-  }
-  .education-roundedimg {
-    margin-top: 10px;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 1rem;
-    margin-right: 0;
-  }
-  .education-text-bullets > ul {
-    max-width: 80%;
-    margin: auto;
+    flex-direction: column;
+    padding: 20px;
+    align-items: flex-start;
+    gap: 15px;
+
+    .education-card-left .school-logo-container {
+      width: 60px;
+      height: 60px;
+    }
+
+    .education-card-right {
+      width: 100%;
+
+      .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+
+        .school-name {
+          font-size: 18px;
+        }
+      }
+    }
   }
 }

@@ -1,51 +1,46 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./timeline.css";
+import {journeyTimeline} from "../../portfolio";
+import StyleContext from "../../contexts/StyleContext";
+import {motion} from "framer-motion";
 
 export default function Timeline() {
-  const timelineData = [
-    {
-      date: "2022 - Present",
-      title: "B.Tech CSE Journey",
-      desc: "Pursuing Computer Science Engineering at JNTUH with focus on Full Stack Development, AI, and Software Engineering."
-    },
-    {
-      date: "2023 - 2024",
-      title: "Frontend Development Phase",
-      desc: "Started building projects using HTML, CSS, JavaScript and React.js. Developed strong UI/UX fundamentals."
-    },
-    {
-      date: "2024",
-      title: "Project Building Stage",
-      desc: "Built real-world applications like Resume Analyzer, FlashCard App, QuoteVerse, and FitLife projects."
-    },
-    {
-      date: "2025",
-      title: "Internship Experience",
-      desc: "Completed internships at Prodigy Infotech and CodeAlpha working on React.js, JavaScript, and API integration."
-    },
-    {
-      date: "2025 - 2026",
-      title: "Advanced Full Stack + AI",
-      desc: "Working on MERN stack applications, AI-based tools, and deploying real-world scalable projects."
-    }
-  ];
+  const {isDark} = useContext(StyleContext);
+
+  if (!journeyTimeline.display) return null;
 
   return (
-    <div className="timeline-main">
-      <h1 className="section-title">📈 Journey Timeline</h1>
+    <div className="timeline-main" id="timeline">
+      <h1 className={isDark ? "dark-mode section-title" : "section-title"}>
+        {journeyTimeline.title}
+      </h1>
+      <p className={isDark ? "dark-mode section-subtitle" : "section-subtitle"}>
+        {journeyTimeline.subtitle}
+      </p>
 
       <div className="timeline">
-        {timelineData.map((item, index) => (
-          <div
+        {journeyTimeline.timeline.map((item, index) => (
+          <motion.div
             key={index}
             className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
+            initial={{opacity: 0, x: index % 2 === 0 ? -50 : 50}}
+            whileInView={{opacity: 1, x: 0}}
+            viewport={{once: true}}
+            transition={{duration: 0.6, delay: index * 0.1}}
           >
-            <div className="timeline-content">
-              <span className="timeline-date">{item.date}</span>
+            {/* Glowing Dot on center line */}
+            <div className="timeline-dot"></div>
+
+            <div
+              className={
+                isDark ? "timeline-content dark-content" : "timeline-content"
+              }
+            >
+              <span className="timeline-date">{item.year}</span>
               <h2>{item.title}</h2>
-              <p>{item.desc}</p>
+              <p>{item.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -1,7 +1,197 @@
 @import "../_globalColor";
 
+// Light mode default overrides
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+span:not(.date-badge):not(.school-duration):not(.why-icon-wrapper):not(
+    .cert-icon-wrapper
+  ):not(.profile-icon-wrapper) {
+  color: #000000;
+}
+
+// Ensure alternate section headings are bold, separate, and have a unique distinct color
+#skills .skills-heading {
+  color: #8a2be2 !important; // Blue Violet
+  font-weight: 800 !important;
+}
+
+#experience .experience-heading {
+  color: #ff4500 !important; // Orange Red
+  font-weight: 800 !important;
+}
+
+#education .education-heading {
+  color: #2e8b57 !important; // Sea Green
+  font-weight: 800 !important;
+}
+
+#certifications .title {
+  color: #d4af37 !important; // Metallic Gold
+  font-weight: 800 !important;
+}
+
+#leadership .title {
+  color: #1e90ff !important; // Dodger Blue
+  font-weight: 800 !important;
+}
+
+#whyHireMe .title {
+  color: #ff1493 !important; // Deep Pink
+  font-weight: 800 !important;
+}
+
+#codingProfiles .title {
+  color: #00a86b !important; // Jade/Emerald Green
+  font-weight: 800 !important;
+}
+
+#dashboards .title {
+  color: #c71585 !important; // Medium Violet Red
+  font-weight: 800 !important;
+}
+
+#achievements .achievement-heading {
+  color: #ff7f50 !important; // Coral
+  font-weight: 800 !important;
+}
+
+#contact .contact-heading {
+  color: #9370db !important; // Medium Purple
+  font-weight: 800 !important;
+}
+
+// Sub-sections custom colors & light bold styling (font-weight: 600)
+// 1. Experiences sub-sections
+.experience-card-title {
+  color: #111111 !important;
+  font-weight: 700 !important;
+  .dark-mode & {
+    color: #ffffff !important;
+  }
+}
+.experience-card-subtitle {
+  color: #8c52ff !important; // Glowing violet for company name
+  font-weight: 600 !important;
+}
+
+// 2. Education sub-sections
+.school-name {
+  color: #2e8b57 !important; // Distinct sea green for school name
+  font-weight: 700 !important;
+}
+.school-degree {
+  color: #5b687c !important;
+  font-weight: 600 !important;
+  .dark-mode & {
+    color: #cbd5e1 !important;
+  }
+}
+
+// 3. Leadership sub-sections
+.leadership-meta h2 {
+  color: #1e90ff !important; // Dodger blue for role
+  font-weight: 700 !important;
+}
+.leadership-meta h3 {
+  color: #645beb !important; // Purple for company/fest name
+  font-weight: 600 !important;
+}
+
+// 4. Why Hire Me sub-sections
+.why-card h3 {
+  color: #ff1493 !important; // Deep pink for competency name
+  font-weight: 700 !important;
+}
+
+// 5. Coding Profiles sub-sections
+.profile-details h3 {
+  color: #00a86b !important; // Jade green for platform name
+  font-weight: 700 !important;
+}
+
+// 6. Achievements / Projects sub-sections
+.card-title {
+  color: #ff7f50 !important; // Coral for project title
+  font-weight: 700 !important;
+}
+
+// Dark mode global overrides for pure white text
 .dark-mode {
   background-color: $darkBackground;
-  color: white;
-  transition: "0.1s";
+  color: #ffffff;
+  transition: 0.1s;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  span:not(.date-badge):not(.school-duration):not(.why-icon-wrapper):not(
+      .cert-icon-wrapper
+    ):not(.profile-icon-wrapper):not(.certificate-tag):not(.status-dot):not(
+      .dot
+    ):not(.pulse-ring):not(.navicon) {
+    color: #ffffff !important;
+  }
+
+  // Restore the unique section and sub-section colors even in dark mode
+  #skills .skills-heading {
+    color: #8a2be2 !important;
+  }
+  #experience .experience-heading {
+    color: #ff4500 !important;
+  }
+  #education .education-heading {
+    color: #2e8b57 !important;
+  }
+  #certifications .title {
+    color: #d4af37 !important;
+  }
+  #leadership .title {
+    color: #1e90ff !important;
+  }
+  #whyHireMe .title {
+    color: #ff1493 !important;
+  }
+  #codingProfiles .title {
+    color: #00a86b !important;
+  }
+  #dashboards .title {
+    color: #ff69b4 !important; // Hot Pink
+  }
+  #achievements .achievement-heading {
+    color: #ff7f50 !important;
+  }
+  #contact .contact-heading {
+    color: #9370db !important;
+  }
+
+  // Sub-sections
+  .experience-card-subtitle {
+    color: #b388ff !important;
+  } // Slightly lighter violet for dark mode
+  .school-name {
+    color: #4ee290 !important;
+  } // Brighter green for school name in dark mode
+  .leadership-meta h3 {
+    color: #a29bfe !important;
+  } // Lighter purple for dark mode fest coordinator
+  .why-card h3 {
+    color: #ff60b5 !important;
+  } // Brighter pink for dark mode why-hire
+  .profile-details h3 {
+    color: #34d399 !important;
+  } // Brighter emerald for dark mode profile name
+  .card-title {
+    color: #ffa07a !important;
+  } // Light coral for dark mode project title
 }

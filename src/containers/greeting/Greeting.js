@@ -39,14 +39,23 @@ export default function Greeting() {
               <div id="resume" className="empty-div"></div>
               <SocialMedia />
               <div className="button-greeting-div">
-                <Button text="Contact me" href="#contact" />
+                <Button
+                  text="Contact me"
+                  href="#contact"
+                  onClick={e => {
+                    e.preventDefault();
+                    if (window.triggerContactModal)
+                      window.triggerContactModal();
+                  }}
+                />
                 {greeting.resumeLink && (
                   <a
                     href={require("./resume.pdf")}
-                    download="Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="download-link-button"
                   >
-                    <Button text="Download my resume" />
+                    <Button text="View my resume" />
                   </a>
                 )}
               </div>

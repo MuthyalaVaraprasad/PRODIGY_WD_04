@@ -1,31 +1,92 @@
-@import "../../_globalColor";
-
-.dev-icons {
-  padding-left: 0;
-  list-style: none;
-  font-size: 3rem;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: center;
+.skills-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
 }
 
-.software-skill-inline {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
+.skill-cat-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(211, 211, 211, 0.4);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &.dark-card {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    .category-title {
+      color: #ffffff;
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &:hover {
+    border-color: #645beb;
+    box-shadow: 0 8px 25px rgba(100, 91, 235, 0.12);
+  }
+
+  .category-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    color: #171c28;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.4);
+    text-align: left;
+  }
 }
 
-.software-skill-inline > i {
-  color: $subTitle;
+.badges-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.software-skill-inline > i:hover {
-  color: $skillsColor;
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(100, 91, 235, 0.08);
+  color: #645beb;
+  border-radius: 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+
+  &.dark-badge {
+    background: rgba(100, 91, 235, 0.15);
+    color: #93c5fd;
+
+    &:hover {
+      background: #645beb;
+      color: #ffffff;
+    }
+  }
+
+  &:hover {
+    background: #645beb;
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  .badge-icon {
+    margin-right: 8px;
+    font-size: 14px;
+  }
 }
-.software-skill-inline > p {
-  color: $subTitle;
-  font-size: 10px;
-}
-.software-skill-inline > i:hover ~ p {
-  color: $skillsColor;
+
+@media (max-width: 768px) {
+  .skills-categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-cat-card {
+    padding: 18px;
+  }
 }
