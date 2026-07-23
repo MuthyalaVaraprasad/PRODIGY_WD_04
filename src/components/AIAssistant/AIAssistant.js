@@ -149,7 +149,7 @@ const resumeKnowledge = {
   * Board of Secondary Education, Telangana`,
   contact: `**Contact Details:**
 * **Phone:** +91 9963889086
-* **Email:** mudhirajnani466@gmail.com
+* **Email:** muthyalavaraprasad02@gmail.com
 * **GitHub:** [github.com/MuthyalaVaraprasad](https://github.com/MuthyalaVaraprasad)
 * **LinkedIn:** [linkedin.com/in/muthyala-varaprasad-5b95b7364/](https://www.linkedin.com/in/muthyala-varaprasad-5b95b7364/)`,
   certifications: `**Certifications & Training:**

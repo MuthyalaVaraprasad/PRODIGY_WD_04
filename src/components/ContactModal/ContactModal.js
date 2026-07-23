@@ -40,8 +40,8 @@ export default function ContactModal({isOpen, onClose}) {
     },
     {
       name: "Email Address",
-      value: "mudhirajnani466@gmail.com",
-      url: "mailto:mudhirajnani466@gmail.com",
+      value: "muthyalavaraprasad02@gmail.com",
+      url: "mailto:muthyalavaraprasad02@gmail.com",
       icon: <FaEnvelope size={24} />,
       color: "#EA4335",
       glowColor: "rgba(234, 67, 53, 0.4)"

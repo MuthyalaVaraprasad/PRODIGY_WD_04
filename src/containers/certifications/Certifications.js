@@ -1,12 +1,20 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import "./Certifications.scss";
 import {certificationsSection} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
-import {FaAward} from "react-icons/fa";
+import {FaAward, FaEye} from "react-icons/fa";
 import {motion} from "framer-motion";
+import CertificateModal from "../../components/CertificateModal/CertificateModal";
 
 export default function Certifications() {
   const {isDark} = useContext(StyleContext);
+  const [selectedCert, setSelectedCert] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleCardClick = (cert) => {
+    setSelectedCert(cert);
+    setModalOpen(true);
+  };
 
   if (!certificationsSection.display) return null;
 
@@ -28,17 +36,39 @@ export default function Certifications() {
             whileInView={{opacity: 1, y: 0}}
             viewport={{once: true}}
             transition={{duration: 0.5, delay: i * 0.05}}
-            whileHover={{y: -5, scale: 1.01}}
+            whileHover={{y: -8, scale: 1.02}}
+            onClick={() => handleCardClick(item)}
+            style={{
+              "--brand-color": item.color || "#ca8a04",
+              borderLeft: `4px solid ${item.color || "#ca8a04"}`,
+              cursor: "pointer"
+            }}
           >
-            <div className="cert-icon-wrapper">
+            <div className="cert-icon-wrapper" style={{color: item.color || "#ca8a04", background: `${item.color || "#ca8a04"}18`}}>
               <FaAward size={24} />
             </div>
             <div className="cert-details">
-              <p className="cert-name">{item}</p>
+              <p className="cert-name">{item.title}</p>
+              <div className="cert-footer-info">
+                <span className="cert-issuer">{item.issuer}</span>
+                <span className="cert-divider">•</span>
+                <span className="cert-date">{item.date}</span>
+              </div>
+            </div>
+            <div className="cert-view-badge">
+              <FaEye className="view-icon" />
+              <span>View</span>
             </div>
           </motion.div>
         ))}
       </div>
+
+      <CertificateModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        cert={selectedCert}
+        isDark={isDark}
+      />
     </div>
   );
 }

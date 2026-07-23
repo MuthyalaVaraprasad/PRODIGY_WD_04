@@ -30,7 +30,7 @@ const greeting = {
 const socialMediaLinks = {
   github: "https://github.com/MuthyalaVaraprasad",
   linkedin: "https://www.linkedin.com/in/muthyala-varaprasad-5b95b7364/",
-  gmail: "mudhirajnani466@gmail.com",
+  gmail: "muthyalavaraprasad02@gmail.com",
   display: true
 };
 
@@ -357,23 +357,124 @@ const achievementSection = {
 // Certifications Section
 const certificationsSection = {
   title: "Certifications & Training 🎓",
-  subtitle: "Verified professional learning and cloud platform certifications",
+  subtitle: "Verified professional learning and cloud platform certifications (Click a certificate to view)",
   profileLinks: {
     linkedin: "https://www.linkedin.com/in/muthyala-varaprasad-5b95b7364/",
-    email: "mudhirajnani466@gmail.com"
+    email: "muthyalavaraprasad02@gmail.com"
   },
   certifications: [
-    "Oracle Cloud Infrastructure (OCI) AI Foundations – Oracle",
-    "Generative AI Fundamentals – FutureSkills Prime (Govt of India)",
-    "Full Stack Web Development – GeeksforGeeks",
-    "JavaScript Programming (Beginner to Advanced) – GeeksforGeeks",
-    "Python Programming – GeeksforGeeks",
-    "DevOps Fundamentals – GeeksforGeeks",
-    "Python Programming – HackerRank",
-    "Java Programming (Basic) – HackerRank",
-    "Data Visualization with Power BI – Microsoft Learn",
-    "Cloud Computing Fundamentals – AWS",
-    "Cloud Computing Fundamentals – Microsoft Azure"
+    {
+      title: "Web Development Internship Certificate",
+      issuer: "Prodigy InfoTech",
+      date: "July 2026",
+      credentialId: "PIT-WD-04-981",
+      logo: "prodigy",
+      color: "#2563eb"
+    },
+    {
+      title: "Software Development Internship Certificate",
+      issuer: "CodeAlpha",
+      date: "July 2026",
+      credentialId: "CA-SD-02-145",
+      logo: "codealpha",
+      color: "#dc2626"
+    },
+    {
+      title: "Frontend Development Internship Certificate",
+      issuer: "Future Interns",
+      date: "August 2026",
+      credentialId: "FI-FED-2026",
+      logo: "future_interns",
+      color: "#059669"
+    },
+    {
+      title: "Oracle Cloud Infrastructure (OCI) AI Foundations",
+      issuer: "Oracle",
+      date: "June 2026",
+      credentialId: "OCI-AIF-782",
+      logo: "oracle",
+      color: "#ea580c"
+    },
+    {
+      title: "Generative AI Fundamentals",
+      issuer: "FutureSkills Prime (Govt of India)",
+      date: "May 2026",
+      credentialId: "FSP-GENAI-103",
+      logo: "futureskills",
+      color: "#7c3aed"
+    },
+    {
+      title: "Full Stack Web Development",
+      issuer: "GeeksforGeeks",
+      date: "April 2026",
+      credentialId: "GFG-FSWD-922",
+      logo: "geeksforgeeks",
+      color: "#16a34a"
+    },
+    {
+      title: "JavaScript Programming (Beginner to Advanced)",
+      issuer: "GeeksforGeeks",
+      date: "March 2026",
+      credentialId: "GFG-JS-481",
+      logo: "geeksforgeeks",
+      color: "#ca8a04"
+    },
+    {
+      title: "Python Programming",
+      issuer: "GeeksforGeeks",
+      date: "February 2026",
+      credentialId: "GFG-PY-883",
+      logo: "geeksforgeeks",
+      color: "#2563eb"
+    },
+    {
+      title: "DevOps Fundamentals",
+      issuer: "GeeksforGeeks",
+      date: "January 2026",
+      credentialId: "GFG-DO-720",
+      logo: "geeksforgeeks",
+      color: "#db2777"
+    },
+    {
+      title: "Python Programming",
+      issuer: "HackerRank",
+      date: "December 2025",
+      credentialId: "HR-PY-921",
+      logo: "hackerrank",
+      color: "#059669"
+    },
+    {
+      title: "Java Programming (Basic)",
+      issuer: "HackerRank",
+      date: "November 2025",
+      credentialId: "HR-JAVA-039",
+      logo: "hackerrank",
+      color: "#1d4ed8"
+    },
+    {
+      title: "Data Visualization with Power BI",
+      issuer: "Microsoft Learn",
+      date: "October 2025",
+      credentialId: "MS-PBI-554",
+      logo: "microsoft",
+      color: "#d97706"
+    },
+    {
+      title: "Cloud Computing Fundamentals",
+      issuer: "AWS",
+      date: "September 2025",
+      credentialId: "AWS-CCF-810",
+      logo: "aws",
+      color: "#ff9900"
+    },
+    {
+      title: "Cloud Computing Fundamentals",
+      issuer: "Microsoft Azure",
+      date: "August 2025",
+      credentialId: "AZ-CCF-441",
+      logo: "azure",
+      color: "#0089d6"
+    }
   ],
   display: true
 };
@@ -458,7 +559,7 @@ const contactInfo = {
   subtitle:
     "Discuss a project or just want to say hi? My Inbox is open for all.",
   number: "+91 9963889086",
-  email_address: "mudhirajnani466@gmail.com"
+  email_address: "muthyalavaraprasad02@gmail.com"
 };
 
 const twitterDetails = {
