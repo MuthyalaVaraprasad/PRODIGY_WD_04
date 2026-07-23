@@ -3,7 +3,7 @@ import "./Certifications.scss";
 import {certificationsSection} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import {FaAward, FaEye} from "react-icons/fa";
-import {motion} from "framer-motion";
+import {motion, AnimatePresence} from "framer-motion";
 import CertificateModal from "../../components/CertificateModal/CertificateModal";
 
 export default function Certifications() {
@@ -63,12 +63,15 @@ export default function Certifications() {
         ))}
       </div>
 
-      <CertificateModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        cert={selectedCert}
-        isDark={isDark}
-      />
+      <AnimatePresence>
+        {modalOpen && (
+          <CertificateModal
+            onClose={() => setModalOpen(false)}
+            cert={selectedCert}
+            isDark={isDark}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
